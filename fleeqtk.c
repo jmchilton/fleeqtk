@@ -293,7 +293,7 @@ int stk_trimfq(int argc, char *argv[])
 	}
 	if (optind == argc) {
 		fprintf(stderr, "\n");
-		fprintf(stderr, "Usage:   seqtk trimfq [options] <in.fq>\n\n");
+		fprintf(stderr, "Usage:   fleeqtk trimfq [options] <in.fq>\n\n");
 		fprintf(stderr, "Options: -q FLOAT    error rate threshold (disabled by -b/-e) [%.2f]\n", param);
 		fprintf(stderr, "         -l INT      maximally trim down to INT bp (disabled by -b/-e) [%d]\n", min_len);
 		fprintf(stderr, "         -b INT      trim INT bp from left (non-zero to disable -q/-l) [0]\n");
@@ -488,7 +488,7 @@ int stk_hety(int argc, char *argv[])
 	uint32_t cnt[3];
 	if (argc == 1) {
 		fprintf(stderr, "\n");
-		fprintf(stderr, "Usage:   seqtk hety [options] <in.fa>\n\n");
+		fprintf(stderr, "Usage:   fleeqtk hety [options] <in.fa>\n\n");
 		fprintf(stderr, "Options: -w INT   window size [%d]\n", win_size);
 		fprintf(stderr, "         -t INT   # start positions in a window [%d]\n", n_start);
 		fprintf(stderr, "         -m       treat lowercases as masked\n");
@@ -558,7 +558,7 @@ int stk_subseq(int argc, char *argv[])
 	}
 	if (optind + 2 > argc) {
 		fprintf(stderr, "\n");
-		fprintf(stderr, "Usage:   seqtk subseq [options] <in.fa> <in.bed>|<name.list>\n\n");
+		fprintf(stderr, "Usage:   fleeqtk subseq [options] <in.fa> <in.bed>|<name.list>\n\n");
 		fprintf(stderr, "Options: -t       TAB delimited output\n");
 		fprintf(stderr, "         -l INT   sequence line length [%d]\n\n", line);
 		fprintf(stderr, "Note: Use 'samtools faidx' if only a few regions are intended.\n\n");
@@ -941,7 +941,7 @@ int stk_cutN(int argc, char *argv[])
 	}
 	if (argc == optind) {
 		fprintf(stderr, "\n");
-		fprintf(stderr, "Usage:   seqtk cutN [options] <in.fa>\n\n");
+		fprintf(stderr, "Usage:   fleeqtk cutN [options] <in.fa>\n\n");
 		fprintf(stderr, "Options: -n INT    min size of N tract [%d]\n", cutN_min_N_tract);
 		fprintf(stderr, "         -p INT    penalty for a non-N [%d]\n", cutN_nonN_penalty);
 		fprintf(stderr, "         -g        print gaps only, no sequence\n\n");
@@ -1037,7 +1037,7 @@ int stk_sample(int argc, char *argv[])
 
 	if (optind + 2 > argc) {
 		fprintf(stderr, "\n");
-		fprintf(stderr, "Usage:   seqtk sample [-2] [-s seed=11] <in.fa> <frac>|<number>\n\n");
+		fprintf(stderr, "Usage:   fleeqtk sample [-2] [-s seed=11] <in.fa> <frac>|<number>\n\n");
 		fprintf(stderr, "Options: -s INT       RNG seed [11]\n");
 		fprintf(stderr, "         -2           2-pass mode: twice as slow but with much reduced memory\n\n");
 		return 1;
@@ -1213,7 +1213,7 @@ int stk_seq(int argc, char *argv[])
 	if (kr == 0) kr = kr_srand(11);
 	if (argc == optind && isatty(fileno(stdin))) {
 		fprintf(stderr, "\n");
-		fprintf(stderr, "Usage:   seqtk seq [options] <in.fq>|<in.fa>\n\n");
+		fprintf(stderr, "Usage:   fleeqtk seq [options] <in.fq>|<in.fa>\n\n");
 		fprintf(stderr, "Options: -q INT    mask bases with quality lower than INT [0]\n");
 		fprintf(stderr, "         -X INT    mask bases with quality higher than INT [255]\n");
 		fprintf(stderr, "         -n CHAR   masked bases converted to CHAR; 0 for lowercase [0]\n");
@@ -1663,8 +1663,8 @@ int stk_fqchk(int argc, char *argv[])
 static int usage()
 {
 	fprintf(stderr, "\n");
-	fprintf(stderr, "Usage:   seqtk <command> <arguments>\n");
-	fprintf(stderr, "Version: 1.2-r101-dirty\n\n");
+	fprintf(stderr, "Usage:   fleeqtk <command> <arguments>\n");
+	fprintf(stderr, "Version: 1.3\n\n");
 	fprintf(stderr, "Command: seq       common transformation of FASTA/Q\n");
 	fprintf(stderr, "         comp      get the nucleotide composition of FASTA/Q\n");
 	fprintf(stderr, "         sample    subsample sequences\n");
